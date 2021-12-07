@@ -1,0 +1,72 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="jumbotron text-center">
+	<h1>היסטוריית העברות</h1>
+</div>
+<div class ="tabs">
+	<div class="tab">
+		<input type="radio" id="tab-1" name="tab-group-1" checked>
+		<label for="tab-1">הכנסות</label>
+		<div class="content" style="top: 50px;">
+	<div id="div1" style="height: 400px;position:relative;flex: 1;">
+		<div id="div2" style="max-height:100%;overflow:auto;border:1px solid black;max-width:100%;">
+			<div id="div3" style="height:400px;max-width:100%;">
+
+				<h1>כסף נכנס</h1>
+                <table style="width:100%">
+					<tr>
+  												<td><b>מספר העברה</b></td>
+												<td><b>ממשתמש</b></td>
+												<td><b>כמות המטבעות</b></td>
+												<td><b>סיבת העברה</b></td>
+												<td><b>תאריך</b></td>
+                    </tr>
+                    <tr>
+						{% for transaction in ingoing_transaction %}
+                            <tr>
+                                {% for data in transaction.values() %}
+                                    <td>{{data}}</td>
+                                {% endfor %}
+					       </tr>
+                        {% endfor %}
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="tab">
+		<input type="radio" id="tab-2" name="tab-group-1">
+		<label for="tab-2">הוצאות</label>
+		<div class="content">
+	<div id="div1" style="height: 400px;position:relative;flex: 1; ;">
+		<div id="div2" style="max-height:100%;overflow:auto;border:1px solid black;max-width:100%;">
+			<div id="div3" style="height:400px;max-width:100%;">
+
+                <h1>כסף יוצא</h1>
+                <table style="width:100%">
+					<tr>
+						<td><b>מספר העברה</b></td>
+					<td><b>למשתמש</b></td>
+					<td><b>כמות המטבעות</b></td>
+					<td><b>סיבת העברה</b></td>
+					<td><b>תאריך</b></td>
+                    </tr>
+                    <tr>
+						{% for transaction in outgoing_transaction %}
+                            <tr>
+                                {% for data in transaction.values() %}
+                                    <td>{{data}}</td>
+                                {% endfor %}
+					       </tr>
+                        {% endfor %}
+				</table>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

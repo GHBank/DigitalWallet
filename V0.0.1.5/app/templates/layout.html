@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+	<meta charset="utf-8">
+	<title>bank haimnasia</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="stylesheet" href="./static/css/normalize.css" />
+	<link rel="stylesheet" href="./static/css/skeleton.css" />
+
+
+</head>
+
+<body>
+	<style>
+		.Center {
+			width: 200px;
+			height: 200px;
+			position: fixed;
+			background-color: blue;
+			top: 50%;
+			left: 50%;
+			margin-top: -100px;
+			margin-left: -100px;
+		}
+
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		body {
+			background: rgb(9, 251, 252);
+			background: radial-gradient(circle, rgba(9, 251, 252, 1) 0%, rgba(27, 91, 198, 1) 63%, rgba(0, 3, 139, 1) 100%);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.button1 {
+			position: relative;
+			padding: 15px 32px;
+			color: white;
+			vertical-align: middle font-size: 20px;
+			border-radius: 12px;
+			display: inline-block;
+			border-radius: 4px;
+			background-color: red;
+			border: none;
+			color: #FFFFFF;
+			text-align: center;
+			font-size: 28px;
+			padding: 20px;
+			width: 150px;
+			transition: all 0.5s;
+			cursor: pointer;
+			margin: 5px;
+		}
+
+		.button1 span {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			transition: 0.5s;
+		}
+
+		.button1 span:after {
+			content: '\00bb';
+			//content: '\25B6';
+			//content: '\25E3';
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			right: -20px;
+			transition: 0.5s;
+		}
+
+		.button1:hover span {
+			padding-right: 25px;
+		}
+
+		.button1:hover span:after {
+			opacity: 1;
+			right: 0;
+		}
+
+		.button2 {
+			position: relative;
+			padding: 15px 32px;
+			color: white;
+			vertical-align: middle font-size: 20px;
+			border-radius: 12px;
+			display: inline-block;
+			border-radius: 4px;
+			background-color: red;
+			border: none;
+			color: #FFFFFF;
+			text-align: center;
+			font-size: 28px;
+			padding: 20px;
+			width: 250px;
+			transition: all 0.5s;
+			cursor: not-allowed;
+			margin: 5px;
+		}
+
+		.button2 span {
+			cursor: not-allowed;
+			display: inline-block;
+			position: relative;
+			transition: 0.5s;
+		}
+
+		.button2 span:after {
+			content: '\00bb';
+			//content: '\25B6';
+			//content: '\25E3';
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			right: -20px;
+			transition: 0.5s;
+		}
+
+		.button2:hover span {
+			padding-right: 25px;
+		}
+
+		.button2:hover span:after {
+			opacity: 1;
+			right: 0;
+		}
+
+
+
+
+		/* Add padding to containers */
+
+		/* Full-width input fields */
+		input[type=text],
+		input[type=password] {
+			width: 100%;
+			padding: 15px;
+			margin: 5px 0 22px 0;
+			display: inline-block;
+			border: none;
+			background: #f1f1f1;
+		}
+
+		input[type=text]:focus,
+		input[type=password]:focus {
+			background-color: #ddd;
+			outline: none;
+		}
+
+		/* Overwrite default styles of hr */
+		hr {
+			border: 1px solid #f1f1f1;
+			margin-bottom: 25px;
+		}
+
+		/* Set a style for the submit button */
+		.btreglog {
+			background-color: red;
+			color: white;
+			padding: 16px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			opacity: 0.9;
+		}
+
+		.btreglog:hover {
+			opacity: 8;
+		}
+
+		/* Add a blue text color to links */
+		a {
+			color: dodgerblue;
+		}
+
+		.tabcontent {
+			display: none;
+			padding: 6px 12px;
+			border: 1px solid #ccc;
+			border-top: none;
+		}
+
+		/* Set a grey background color and center the text of the "sign in" section */
+		.signin {
+			background-color: #f1f1f1;
+			text-align: center;
+		}
+		.tabs {
+  position: relative;
+  min-height: 200px; /* This part sucks */
+  clear: both;
+  margin: 25px 0;
+	display: flex;
+	justify-content: center;
+}
+.tab {
+	text-align: center;
+	font-size: 15px;
+}
+.tab label {
+  background: #eee;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-left: -1px;
+	margin-bottom: 420px;
+  position: relative;
+  left: 1px;
+}
+.tab [type=radio] {
+  display: none;
+}
+.content {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+	overflow: hidden;
+}
+.content > * {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+}
+[type="radio"]:focus ~ label {
+  ouline: 2px solid blue;
+}
+[type=radio]:checked ~ label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+
+[type="radio"]:checked ~ label ~ .content > * {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+	</style>
+	{% include 'includes/_navbar.html' %}
+	<div class="container">
+		{% block body %}{% endblock %}
+	</div>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+	</script>
+	<script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js">
+
+	</script>
+	<script type="text/javascript">
+		CKEDITOR.replace('editor')
+	</script>
+</body>
+
+</html>

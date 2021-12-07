@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <h1 style='font-size: 60px'>העברה חדשה</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form action="" method="POST">    
+        <p>מהחשבון: <span>{{session['username']}}</span></p>
+        <div class="form-group">
+            {{render_field(form.to_username,title = 'לחשבון', class_ = "form-control")}}
+        </div>
+        <div class="form-group">
+            {{render_field(form.amount_of_tokens_to_transact,title = 'כמות המטבעות להעברה', class_ = "form-control")}}
+        </div>
+        <div class="form-group">
+            {{render_field(form.title,title = 'כותרת העברה', class_ = "form-control")}}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+{% endblock %}

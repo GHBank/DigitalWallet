@@ -1,0 +1,67 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="jumbotron text-center">
+	<h1>אישור וביטול העברות</h1>
+</div>
+<div style="display: flex;" class ="tabs">
+	<div class="tab">
+		<input type="radio" id="tab-1" name="tab-group-1" checked>
+		<label for="tab-1">אישור הכנסות</label>
+		<div class="content">
+	<div id="div1" style="height: 400px;position:relative;flex: 1;">
+		<div id="div2" style="max-height:100%;overflow:auto;border:1px solid black;max-width:100%;">
+			<div id="div3" style="height:400px;max-width:100%;">
+				<table style="width:100%">
+					<tr>
+                        {% for data in ingoing_transaction[0] %}
+                            <td>{{data}}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+						{% for transaction in ingoing_transaction %}
+                            <tr>
+                                {% for data in transaction.values() %}
+                                    <td>{{data}}</td>
+                                {% endfor %}
+                                <td> <button class="btn" onclick="window.location.href='/approveTransaction/{{transaction['transactionId']}}'"><span>אשר העברה </span></button></td>
+                                <td> <button class="btn" onclick="window.location.href='/declineTransaction/{{transaction['transactionId']}}'"><span>דחה העברה </span></button></td>
+					       </tr>
+                        {% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+	<div class="tab">
+		<input type="radio" id="tab-2" name="tab-group-1">
+		<label for="tab-2">ביטול הוצאות</label>
+		<div class="content">
+	<div id="div1" style="height: 400px;position:relative;flex: 1; ;">
+		<div id="div2" style="max-height:100%;overflow:auto;border:1px solid black;max-width:100%;">
+			<div id="div3" style="height:400px;max-width:100%;">
+				<table style="width:100%">
+					<tr>
+                        {% for data in ingoing_transaction[0] %}
+                            <td>{{data}}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+						{% for transaction in outgoing_transaction %}
+                            <tr>
+                                {% for data in transaction.values() %}
+                                    <td>{{data}}</td>
+                                {% endfor %}
+                                <td> <button class="btn" onclick="window.location.href='/cancelTransaction/{{transaction['transactionId']}}'"><span>בטל העברה </span></button></td>
+					       </tr>
+                        {% endfor %}
+				</table>
+
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+
+
+{% endblock %}

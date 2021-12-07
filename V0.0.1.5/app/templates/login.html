@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<style>
+  .container {
+    width: 85%;
+    height: 85%;
+    background-color: white;
+  }
+</style>
+  <form action="" method="POST">
+    <div class="container">
+      <h1 style = "margin-top:25px">התחברות</h1>
+      <hr>
+    <div class="form-group">
+      <label>שם משתמש</label>
+      <input type="text" name="username" required placeholder="הכנס שם משתמש" class="form-control" value={{request.form.username}} >
+    </div>
+    <div class="form-group">
+      <label>ססמא</label>
+      <input type="password" name="password" required placeholder="הכנס ססמא" class="form-control" value={{request.form.password}} >
+    </div>
+    <button type="submit" class="btreglog">התחבר</button>
+<p style= "margin-top: 15px;">אין לך חשבון? <a href="/register">הרשם</a>.</p>
+
+    </div>
+  </form>
+{% endblock %}

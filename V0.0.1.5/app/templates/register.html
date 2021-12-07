@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+  .container {
+    width: 85%;
+    height: 85%;
+    background-color: white;
+  }
+</style>
+        {% from "includes/_formhelpers.html" import render_field %}
+        <form method="POST" action="">
+              <div class="container" >
+                <h1 style = "margin-top:25px">הרשמה</h1>
+                <p>בבקשה תמלא את הטופס בשביל ליצור חשבון</p>
+                <hr>
+                <div class="form-group">
+                <label>ת.ז</label>
+                {{render_field(form.id_number, class_ = "form-control", placeholder="הכנס תעודת זהות")}}
+              </div>
+            <div class="form-group">
+              <label>שם</label>
+              {{render_field(form.name, class_ = "form-control", placeholder="הכנס שם")}}
+            </div>
+            <div class="form-group">
+              <label>אימייל</label>
+              {{render_field(form.email, class_ = "form-control", placeholder="הכנס אימייל")}}
+            </div>
+            <div class="form-group">
+              <label>שם משתמש</label>
+              {{render_field(form.username, class_ = "form-control", placeholder="הכנס שם משתמש")}}
+            </div>
+            <div class="form-group">
+              <label>ססמא</label>
+              {{render_field(form.password, class_ = "form-control", placeholder="הכנס ססמא")}}
+            </div>
+            <div class="form-group">
+              <label>וידוא ססמא</label>
+              {{render_field(form.confirm, class_ = "form-control", placeholder="חזור על הססמא")}}
+            </div>
+            <button type="submit" class="btreglog">הרשם</button>
+            <p style = "margin-top:15px"> יש לך כבר חשבון? <a href="/login">התחבר</a>.</p>
+          </div>
+        </form>
+{% endblock %}
